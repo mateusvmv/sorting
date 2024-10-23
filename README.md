@@ -3,18 +3,20 @@ Collection of small sorting algorithms implemented in C, in the `sorting.c` file
 
 ## Sorting Algorithms
 
-| Algorithm                 | Average Case        | Worst Case        | Stable | In-Place | LOC |
-|---------------------------|---------------------|-------------------|--------|----------|-----|
-| **Shell Sort**            | O(n log n)          | O(n²)             | No     | Yes      | 6   |
-| **Merge Sort (InPlace)**  | O(n log n)          | O(n log² n)       | Yes    | Yes      | 18  |
-| **Merge Sort with Shell** | O(n log² n)         | O(n² log n)       | No     | Yes      | 7   |
-| **Merge Sort**            | O(n log n)          | O(n log n)        | Yes    | No       | 14  |
-| **Radix Sort**            | O(nk)               | O(nk)             | Yes    | No       | 11**|
-| **Heap Sort**             | O(n log n)          | O(n log n)        | No     | Yes      | 12  |
-| **Insertion Sort**        | O(n²)               | O(n²)             | Yes    | Yes      | 5   |
-| **Quick Sort**            | O(n log n)          | O(n²)             | No     | Yes      | 6*  |
-| **PP Merge Sort**         | O(n log n)          | O(n log n)        | Yes    | No       | 20* |
+| Algorithm                 | Average Case | Worst Case   | Stable | In-Place | LOC |
+|---------------------------|--------------|-------------------|--------|----------|-----|
+| **Shell Sort**            | O(n log n)   | O(n²)        | No     | Yes      | 6   |
+| **Merge Sort (InPlace)**  | O(n log n)   | O(n log² n)  | Yes    | Yes      | 18  |
+| **Merge Sort with Shell** | O(n log² n)  | O(n² log n)  | No     | Yes      | 7   |
+| **Merge Sort**            | O(n log n)   | O(n log n)   | Yes    | No       | 14  |
+| **Radix Sort**            | O(nk)        | O(nk)        | Yes    | No       | 11**|
+| **Heap Sort**             | O(n log n)   | O(n log n)   | No     | Yes      | 12  |
+| **Insertion Sort**        | O(n²)        | O(n²)        | Yes    | Yes      | 5   |
+| **Quick Sort**            | O(n log n)   | O(n²)        | No     | Yes      | 6*  |
+| **PP Merge Sort**         | O(n log n)   | O(n log n)   | Yes    | No       | 20* |
+
 \* Uses another sort for the base case, to reduce recursion depth, and it makes a huge difference
+
 \*\* Calls insertion sort for very small arrays, and it makes that specific case better
 
 ## Description
