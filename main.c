@@ -36,7 +36,7 @@ int main() {
     FILE *f_quick = fopen("quick.dat", "w");
     FILE *f_merge_pp = fopen("merge_sort_pp.dat", "w");
 
-    srand(time(NULL));  // Initialize random seed
+    srand(clock());
 
     // Benchmarking loop
     for (int i = 0; i < num_sizes; i++) {

@@ -22,12 +22,13 @@ void insertion(T *a, T *e) {
 }
 
 void merge_inplace(T *a, T *ae, T *b, T *be) {
-    T c[8192], *ce = c, *d = a, *l = b, *r = b;
-    if(be - a <= 8192) {
-        while(a < ae && b < be) *ce++ = *b < *a ? *b++ : *a++;
-        while(a < ae || b < be) *ce++ =  b < be ? *b++ : *a++;
-        memmove(b - (ae-a), a, (ae-a) * sizeof(T));
-        memmove(d, c, (ce-c) * sizeof(T));
+    T v[8192], *c = v, *ce, *l = b, *r = b;
+    if(ae-a < 8192) {
+        memmove(c, a, (ae-a) * sizeof(T)), ce = c+(ae-a);
+        while(c < ce) *a++ = b < be && *b < *c ? *b++ : *c++;
+    } else if(be-b < 8192) {
+        memmove(c, b, (be-b) * sizeof(T)), ce = c+(be-b);
+        while(c < ce) *--be = a >= ae || *(ce-1) >= *(ae-1) ? *--ce : *--ae;
     } else {
         while(l > a && r < be && *(l-1) > *r) l -= 1, r += 1;
         for(T *p = l, *q = b, t; q < r;) t = *p, *p++ = *q, *q++ = t;
@@ -96,7 +97,7 @@ void quick_sort(T *a, T *e) {
 }
 
 void _pp_merge_sort(T* v, T* w, size_t n) {
-    if(n < 1024) return insertion(v, v+n);
+    if(n < 64) return insertion(v, v+n);
     size_t m = (n+1)/2; n /= 2;
     _pp_merge_sort(v, w, m/2);
     _pp_merge_sort(v+m/2, w+m/2, (m+1)/2);
