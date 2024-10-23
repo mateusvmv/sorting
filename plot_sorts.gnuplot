@@ -1,10 +1,13 @@
-set terminal svg size 1920,1080 dynamic
-set output "sorts_benchmark.svg"
+set terminal pngcairo size 1920,1080 background rgb 'black'
+set output "sorts_benchmark.png"
 
 set title "Sorting Algorithms Benchmark"
-set xlabel "Input Size"
-set ylabel "Time (seconds)"
-set grid
+set xlabel "Input Size"      tc rgb 'white'
+set ylabel "Time (seconds)"  tc rgb 'white'
+set border lc rgb 'white'
+set key tc rgb 'white'
+set linetype 1 lc rgb 'white'
+set grid lc rgb 'white'
 
 plot "shell_sort.dat" using 1:2 with linespoints title "Shell Sort", \
      "merge_sort_inplace.dat" using 1:2 with linespoints title "Merge Sort Inplace", \

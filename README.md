@@ -31,4 +31,4 @@ Collection of small sorting algorithms implemented in C, in the `sorting.c` file
 - **Quick Sort**: A quick quick sort, uses a random pivot and shell sort as base.
 - **PP Merge Sort**: An implementation of a top down Ping Pong Merge Sort. It uses insertion sort for the base case, and the same merge function from the iterative merge sort.
 
-![Sorting Algorithms Benchmark](sorts_benchmark.svg)
+![Sorting Algorithms Benchmark](sorts_benchmark.png)
