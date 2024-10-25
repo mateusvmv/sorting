@@ -55,7 +55,7 @@ void merge(T *a, T *ae, T *b, T *be, T *e, T *r) {
     while(a < ae || b < be) *r++ =  b < be ? *b++ : *a++;
 }
 void merge_sort(T *a, T *ae) {
-    T *b = calloc(sizeof(T), ae-a), *be = b + (ae-a);
+    T *b = calloc(ae-a, sizeof(T)), *be = b + (ae-a);
     for(int sz = 1; a+sz < ae; sz *= 4)
         for(T *l = a, *r = b; l < ae; l += 4*sz, r = b+(l-a))
             merge(l, l+sz, l+sz, l+2*sz, ae, r),
@@ -66,7 +66,7 @@ void merge_sort(T *a, T *ae) {
 
 void radix_sort(T *a, T *e) {
     if(e-a < 128) return insertion(a, e);
-    T *b = calloc(sizeof(T), e-a), *t;
+    T *b = calloc(e-a, sizeof(T)), *t;
     for(int s = 0; s < 32; s += 8, t = a, a = b, b = t, e = a+(e-b)) {
         int c[256] = {0};
         for(T *l = a; l < e; l += 1) c[(*l^(1<<31))>>s&255] += 1;
